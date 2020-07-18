@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mx.java.android</groupId>
-	<artifactId>LoginAndroidSecurity</artifactId>
+	<artifactId>login-android-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>LoginAndroidSecurity</name>
-	<description>LoginAndroidSecurity</description>
+	<name>login-android-security</name>
+	<description>login-android-security</description>
 
 	<properties>
 		<java.version>1.8</java.version>

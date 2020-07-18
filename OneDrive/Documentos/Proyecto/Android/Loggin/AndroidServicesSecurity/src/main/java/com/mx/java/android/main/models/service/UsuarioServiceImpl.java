@@ -2,7 +2,6 @@ package com.mx.java.android.main.models.service;
 
 import java.util.List;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +34,20 @@ public class UsuarioServiceImpl implements InterUsuarioService{
 	@Transactional(readOnly = true)
 	@Override
 	public Usuario loginBy(Usuario poUsuario) {
-		return usuarioDaoImpl.findByLogin(poUsuario.getUsuario(), DigestUtils.md5Hex(poUsuario.getPassword().toString()));
+		return usuarioDaoImpl.findByLogin(poUsuario.getUsuario(), poUsuario.getPassword().toString());
+	}
+	
+	@Override
+	@Transactional
+	public Usuario save(Usuario poUsuario) {
+		return usuarioDao.save(poUsuario);
+	}
+	
+	@Override
+	@Transactional
+	public Boolean updatePassword(Usuario poUsuario) {
+		Integer inActualiza =usuarioDaoImpl.updatePassword(poUsuario.getUsuario(), poUsuario.getCorreo(), poUsuario.getPassword());
+		return inActualiza==0?true:false;
 	}
 
 }

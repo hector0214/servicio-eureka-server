@@ -6,10 +6,13 @@ import com.mx.java.android.main.models.entity.Usuario;
 
 public interface InterUsuarioService {
 	
-	public  List<Usuario> findAll();
+	public List<Usuario> findAll();
 	
 	public Usuario findBy(Integer idUsuario);
 	
 	public Usuario loginBy(Usuario poUsuario);
 	
+	public Usuario save(Usuario poUsuario);
+	
+	public Boolean updatePassword(Usuario poUsuario);
 }
